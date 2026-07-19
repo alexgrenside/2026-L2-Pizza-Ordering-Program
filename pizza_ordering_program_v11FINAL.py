@@ -47,7 +47,7 @@ gp = garlic prawn
 ms = mario special
 
 Shortcuts for sides:
-gs = garlic scrolls
+gb = garlic bread
 cs = coleslaw
 fs = french fries
 cc = choc chip cookies
@@ -69,7 +69,7 @@ pizza_df = pd.DataFrame({
 })
 
 sides_df = pd.DataFrame({
-    "Side": ["garlic scrolls", "coleslaw", "french fries", "choc chip cookies"],
+    "Side": ["garlic bread", "coleslaw", "french fries", "choc chip cookies"],
     "Price": [4, 3, 4, 5]
 })
 
@@ -221,7 +221,7 @@ while True:
 
         if cart_choice == "back":
             order_pizzas(cart_pizzas)
-            if string_checker("Would you like to add or change sides? ", yes_no) == "yes":
+            if string_checker("Would you like to add sides? ", yes_no) == "yes":
                 order_sides(cart_sides)
 
         elif cart_choice == "cancel":
