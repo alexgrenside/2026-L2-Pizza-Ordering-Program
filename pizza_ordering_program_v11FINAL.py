@@ -228,6 +228,9 @@ while True:
             print("\n❌ Order cancelled.")
             break
 
+        elif cart_choice != "":
+            print("\n⚠️  Please type 'back', 'cancel', or just press Enter to confirm.")
+
         else:
             print("\n💳💳✅ Order confirmed! ✅💳💳")
             display_cart(cart_pizzas, cart_sides, order_type)
