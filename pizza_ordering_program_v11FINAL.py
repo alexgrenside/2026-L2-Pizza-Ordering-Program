@@ -16,7 +16,7 @@ def string_checker(question, valid_ans):
         print()
 
 
-# Integer checker
+# integer checker
 def int_check(question, low, high):
     error = f"Oops - please enter an integer between {low} and {high}."
     while True:
@@ -30,7 +30,7 @@ def int_check(question, low, high):
             print(error)
 
 
-# Displays instructions
+# displays instructions
 def instruction():
     print('''
 📃📃📃Instructions📃📃📃
@@ -50,7 +50,7 @@ Shortcuts for sides:
 gb = garlic bread
 cs = coleslaw
 fs = french fries
-cc = choc chip cookies
+ccc = choc chip cookies
 
 Type x in the ordering section to finish your order and continue to the cart.
 Type back in the cart to continue ordering.
@@ -61,7 +61,7 @@ A delivery fee of $3 applies for delivery orders.
 ''')
 
 
-# Menu data
+# menu items
 pizza_df = pd.DataFrame({
     "Pizza": ["pepperoni", "cheese", "ham & cheese", "vegetarian", "cheesy garlic",
               "buffalo chicken", "onion", "meatlovers", "hawaiian", "garlic prawn", "mario special"],
@@ -78,10 +78,10 @@ MAX_PIZZAS = 5
 yes_no = ["yes", "no"]
 delivery_options = ["delivery", "pickup"]
 menu_items = list(pizza_df["Pizza"]) + ["x"]
-side_items = list(sides_df["Side"]) + ["x"]
+side_items = list(sides_df["Side"]) + ["x"] 
 
 
-# Show menus
+# show menus
 def show_menu(df, title, footer):
     print(f"\n{title}\n")
     num = 1
@@ -166,7 +166,7 @@ while True:
     print("Welcome to Mario's Pizza")
     print("=" * 40 + "\n")
 
-    # Customer details
+    # customer details
     while True:
         customer_name = input("What is your name? ").strip()
         if customer_name:
@@ -174,13 +174,13 @@ while True:
         print("Invalid name. Please try again.")
 
     phone_number = int_check("What is your phone number? ", 0, 9999999999)
-    print(f"Thanks, {customer_name}! Your phone number is: {phone_number}")
+    print(f"Thanks, {customer_name}! Your phone number is: 0{phone_number}")
 
     # Instructions
     if string_checker("Do you want to read the instructions? ", yes_no) == "yes":
         instruction()
 
-    # Delivery or pickup
+    # delivery or pickup
     order_type = string_checker("Do you want delivery or pickup? ", delivery_options)
 
     if order_type == "delivery":
@@ -198,7 +198,7 @@ while True:
     if string_checker("Would you like to see the menu? ", yes_no) == "yes":
         show_menu(pizza_df, "📜📜📜 PIZZA MENU 📜📜📜", "Type x to finish ordering pizzas and move to sides.")
 
-    # Order pizzas and sides
+    # order pizzas and sides
     cart_pizzas = []
     cart_sides = []
     order_pizzas(cart_pizzas)
@@ -206,7 +206,7 @@ while True:
     if string_checker("Would you like to add any sides? ", yes_no) == "yes":
         order_sides(cart_sides)
 
-    # Cart / confirmation loop
+    # cart
     while True:
         total_pizzas, total_cost = display_cart(cart_pizzas, cart_sides, order_type)
 
@@ -249,7 +249,7 @@ while True:
                 print(f"We will text {phone_number} when the pizza is almost ready.")
             break
 
-    # New order or exit
+    # new order or exit
     print()
     if string_checker("Would you like to place another order? ", yes_no) == "no":
         print("\nThanks for choosing Mario's Pizza! 🍕 Goodbye!")
